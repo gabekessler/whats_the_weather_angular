@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AddressFormComponent } from '../address-form/address-form.component';
+import { AddressComponent } from '../address/address.component';
 import { ForecastComponent } from '../forecast/forecast.component';
 
 import { WeatherComponent } from './weather.component';
@@ -11,8 +14,13 @@ describe('WeatherComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ 
         WeatherComponent,
-        ForecastComponent
-       ]
+        ForecastComponent,
+        AddressComponent,
+        AddressFormComponent
+       ],
+       imports: [
+        ReactiveFormsModule
+      ]
     })
     .compileComponents();
 
