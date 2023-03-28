@@ -1,8 +1,9 @@
 <div class="row">
     <div class="col-md-6">
-        <address></address>
+        <address-form (newAddress)="formatAddress($event)"></address-form>
     </div>
     <div class="col-md-6">
+        <address [formattedAddress]="displayAddress" *ngIf="displayAddress"></address>
         <forecast></forecast>
     </div>
 </div>
