@@ -1,3 +1,4 @@
+<h2>Enter an Address</h2>
 <form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
     <div class="mb-3">
         <label for="street">Street</label>
@@ -19,5 +20,5 @@
         <input type="number" class="form-control" id="zipcode"
         formControlName="zipcode" name="zipcode">
     </div>
-    <button type="submit" class="btn btn-primary" [disabled]="!addressForm.valid">Submit</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!addressForm.valid">Get Weather</button>
 </form>

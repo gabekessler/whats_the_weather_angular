@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Address } from '../address';
 
 @Component({
   selector: 'address-form',
@@ -7,6 +8,10 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./address-form.component.scss']
 })
 export class AddressFormComponent {
+  model = new Address('', '', '', 0);
+
+  @Output() newAddress = new EventEmitter<Address>();
+
   constructor(private fb: FormBuilder) {}
 
   // Uses FormBuilder in case we later want to add 
@@ -19,7 +24,9 @@ export class AddressFormComponent {
   });
 
   public onSubmit() {
-    console.warn(this.addressForm.value);
+    let params = this.addressForm.value;
+    this.model = new Address(params.street!, params.city!, params.state!, params.zipcode!);
+    this.newAddress.emit(this.model);
     this.addressForm.reset();
   }
 }
